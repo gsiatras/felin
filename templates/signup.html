@@ -1,0 +1,74 @@
+{% extends 'partial/base-2.html' %}
+
+{% block content %}
+<div class="geex-content__authentication">
+    <div class="geex-content__authentication__content">
+        <div class="geex-content__authentication__content__wrapper">
+            <div class="geex-content__authentication__content__logo">
+                <a href="index">
+                    <img class="logo-lite" src="{{ url_for('static', filename='img/logo-dark.svg') }}" alt="logo">
+                    <img class="logo-dark" src="{{ url_for('static', filename='img/logo-lite.svg') }}" alt="logo">
+                </a>
+            </div>
+            <!-- Signup Form -->
+            <form id="signInForm" class="geex-content__authentication__form" method="POST" action="{{ url_for('signup') }}" novalidate>
+                <h2 class="geex-content__authentication__title">Sign Up Your Account 👋</h2>
+                <div class="geex-content__authentication__form-group">
+                    <label for="emailSignIn">Your Email</label>
+                    <input type="email" id="emailSignIn" name="emailSignIn" placeholder="Enter Your Email" required>
+                    <i class="uil-envelope"></i>
+                </div>
+                <div class="geex-content__authentication__form-group">
+                    <div class="geex-content__authentication__label-wrapper">
+                        <label for="loginPassword">Password</label>
+                    </div>
+                    <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+                    <i class="uil-eye toggle-password-type"></i>
+                </div>
+                <div class="geex-content__authentication__form-group">
+                    <div class="geex-content__authentication__label-wrapper">
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                    <i class="uil-eye toggle-password-type"></i>
+                </div>
+                <div id="passwordMismatchMessage" class="password-mismatch-message"></div>
+                <!-- Display flash messages (if any) -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for category, message in messages %}
+                                <div class="flash-message {{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="geex-content__authentication__form-group custom-checkbox">
+                    <input type="checkbox" class="geex-content__authentication__checkbox-input" id="rememberMe">
+                    <label class="geex-content__authentication__checkbox-label" for="rememberMe">By creating an account
+                        you agree to Our <a href="#">terms & conditions Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="geex-content__authentication__form-submit">Sign Up</button>
+                <span class="geex-content__authentication__form-separator">Or</span>
+                <div class="geex-content__authentication__form-social">
+                    <a href="#" class="geex-content__authentication__form-social__single">
+                        <img src="{{ url_for('static', filename='img/icon/google.svg') }}" alt="">Google
+                    </a>
+                    <a href="#" class="geex-content__authentication__form-social__single">
+                        <!-- Apple SVG here -->
+                        Apple
+                    </a>
+                </div>
+                <div class="geex-content__authentication__form-footer">
+                    Already have an account? <a href="{{ url_for('signin') }}">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="geex-content__authentication__img">
+        <img src="{{ url_for('static', filename='img/authentication.svg') }}" alt="">
+    </div>
+</div>
+
+{% endblock %}
+

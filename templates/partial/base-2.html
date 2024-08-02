@@ -1,0 +1,17 @@
+{% include 'partial/main.html' %}
+
+{% include 'partial/title.html' %}
+
+{% include 'partial/head-css.html' %}
+
+{% include 'partial/script.html' %}
+
+<body class="geex-dashboard authentication-page">
+    <main class="geex-content">
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+    {% include 'partial/script_js.html' %}
+</body>
