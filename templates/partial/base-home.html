@@ -1,0 +1,35 @@
+{% include 'partial/main.html' %}
+
+{% include 'partial/title.html' %}
+
+{% include 'partial/head-css.html' %}
+
+{% block extra_css %}
+    
+{% endblock  %}
+
+{% include 'partial/script.html' %}
+
+<body class="geex-dashboard">
+    <!-- navbar -->
+    {% include 'partial/small-header-home.html' %}
+	{% include 'partial/header-home.html' %}
+    
+    <main class="geex-main-content">
+        <!-- sidebar -->
+		{% include 'partial/sidebar-home.html' %}
+
+
+        {% block content %}
+            
+        {% endblock  %}
+
+    </main>
+    {% include 'partial/script_js.html' %}
+
+    {% block extra_js %}
+
+    {% endblock %}
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>

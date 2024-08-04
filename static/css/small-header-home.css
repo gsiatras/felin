@@ -1,0 +1,41 @@
+/*---------------------------------------
+#. Small Header Home
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+.geex-small-header-home {
+    display: none;
+    padding: 20px 0 30px;
+  }
+  
+  .geex-small-header-home__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+  }
+  
+  .geex-btn.geex-btn__toggle-sidebar-home {
+    position: absolute; 
+    left: 22px; 
+  }
+  
+  .geex-small-header-home h1 {
+    font-size: 2em; 
+    font-weight: bold; 
+    background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    margin: 0; 
+  }
+  
+  .geex-small-header-home__wrapper {
+    position: relative; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  

@@ -6,6 +6,9 @@ CSS INDEX
 #. Customizer CSS 
 #. Content CSS
 #. DarkMode CSS
+#. Header Home CSS
+#. Sidebar Home
+#. Small Header Home
 ---------------------------------------*/
 /*---------------------------------------
 #. Header
@@ -1756,10 +1759,11 @@ blockquote span:before {
   .geex-btn {
     padding: 10px 20px;
   }
-  .geex-btn.geex-btn__customizer, .geex-btn.geex-btn__toggle-sidebar {
+  .geex-btn.geex-btn__customizer, .geex-btn.geex-btn__toggle-sidebar, geex-btn.geex-btn__toggle-sidebar-home  {
     padding: 10px 15px;
     border-radius: 12px;
   }
+  
 }
 
 @media only screen and (max-width: 575px) {
@@ -2128,6 +2132,16 @@ blockquote span:before {
 
 @media only screen and (max-width: 1199px) {
   .geex-content__header__customizer .geex-btn__toggle-sidebar {
+    display: block;
+  }
+}
+
+.geex-content__header-home__customizer .geex-btn__toggle-sidebar-home {
+  display: none;
+}
+
+@media only screen and (max-width: 1199px) {
+  .geex-content__header-home__customizer .geex-btn__toggle-sidebar-home {
     display: block;
   }
 }
@@ -12495,3 +12509,463 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 .flash-message.error {
   color: red;
 }
+
+/*---------------------------------------
+#. Header Home
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+.geex-header-home {
+  display: none;
+  padding: 20px 0 30px;
+}
+
+.geex-header-home__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 22px;
+  align-items: center;
+}
+
+.geex-header-home__menu-wrapper:first-of-type {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.geex-header-home__menu-wrapper:last-of-type {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.geex-header-home__menu {
+  display: flex;
+  gap: 30px;
+}
+
+.geex-header-home__menu__item {
+  position: relative;
+}
+
+.geex-header-home__menu__item a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--primary-color);
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.geex-header-home__submenu__item a {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--white-color);
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.geex-header-home__menu__item a svg {
+  width: 15px; 
+  height: 15px; 
+}
+
+.geex-header-home__menu__item a svg path {
+  fill: currentColor; 
+  transition: all 0.3s ease;
+}
+
+.geex-header-home__menu__item:hover .geex-header-home__submenu {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.geex-header-home__submenu {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 100%;
+  width: 100%;
+  min-width: 200px;
+  padding: 15px 0;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: transform 0.3s ease;
+}
+
+.geex-header-home__submenu .geex-header-home__menu__link {
+  width: 100%;
+  padding: 10px 25px;
+}
+
+.geex-header-home__submenu .geex-header-home__menu__link.active {
+  color: var(--primary-color);
+}
+
+.geex-header-home__menu__item a[href="signup"] {
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--primary-color); 
+  background-color: var(--section-color); 
+  border: 1px solid var(--primary-color); 
+  border-radius: 20px; 
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+.geex-header-home__menu__item a[href="signup"]:hover {
+  color: var(--white-color); 
+  background-color: var(--primary-color); 
+  border: 1px solid var(--primary-color); 
+}
+
+.geex-header-home h1 {
+  font-size: 2em; 
+  font-weight: bold; 
+  background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+  margin: 0; 
+}
+
+html[data-nav="top"] .geex-header-home {
+  display: block;
+}
+
+
+
+html[data-nav="top"] .geex-sidebar-home {
+  display: none;
+}
+
+@media only screen and (max-width: 1199px) {
+  html[data-nav="top"] .geex-header-home {
+    display: none;
+  }
+  html[data-nav="top"] .geex-small-header-home {
+    display: block;
+  }
+}
+
+.geex-header-home__submenu {
+  z-index: 20;
+}
+
+/*---------------------------------  
+Sidebar Home
+---------------------------------------*/
+/* BEM Element and Modifier */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.geex-sidebar-home {
+  position: fixed;
+  top: 22px;
+  inset-inline-start: 22px;
+  min-width: 310px;
+  max-width: 20%;
+  padding: 38px 29px;
+  border-radius: 33px;
+  height: 100%;
+  max-height: calc(100vh - 44px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  border: 1px solid var(--white-color);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--sectionThree-color)), to(var(--sectionTwo-color)));
+  background-image: linear-gradient(var(--sectionThree-color), var(--sectionTwo-color));
+  /* Scrollbar Width */
+}
+
+.geex-sidebar-home::-webkit-scrollbar {
+  width: 0;
+}
+
+@media only screen and (max-width: 1440px) {
+  .geex-sidebar-home {
+    min-width: 280px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .geex-sidebar-home {
+    top: 0;
+    width: 0;
+    inset-inline-start: 0;
+    border-radius: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .geex-sidebar-home {
+    padding: 35px 20px;
+  }
+}
+
+.geex-sidebar-home__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  min-height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.geex-sidebar-home__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.geex-sidebar-home__logo img {
+  max-height: 50px;
+  max-width: 100%;
+}
+
+.geex-sidebar-home__close {
+  position: absolute;
+  top: 20px;
+  inset-inline-end: 20px;
+  color: var(--body-color);
+  display: none;
+}
+
+.geex-sidebar-home__close:hover {
+  color: var(--danger-color);
+}
+
+@media only screen and (max-width: 1199px) {
+  .geex-sidebar-home__close {
+    display: block;
+  }
+}
+
+.geex-sidebar-home__menu-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.geex-sidebar-home__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.geex-sidebar-home__menu__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.geex-sidebar-home__menu__item:first-child {
+  margin-top: 15px;
+}
+
+.geex-sidebar-home__menu__item:last-child {
+  margin-bottom: 15px;
+}
+
+.geex-sidebar-home__menu__link {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+  color: var(--body-color);
+  padding: 16px 25px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 18px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 575px) {
+  .geex-sidebar-home__menu__link {
+    gap: 10px;
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+}
+
+.geex-sidebar-home__menu__link i {
+  font-size: 23px;
+  color: var(--grayThree-color);
+}
+
+@media only screen and (max-width: 575px) {
+  .geex-sidebar-home__menu__link i {
+    font-size: 20px;
+  }
+}
+
+.geex-sidebar-home__menu__link svg path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.geex-sidebar-home__menu__link.default-active, .geex-sidebar-home__menu__link.active, .geex-sidebar-home__menu__link:hover {
+  color: var(--primary-color) !important;
+  background: rgba(171, 84, 219, 0.15);
+}
+
+.geex-sidebar-home__menu__link.default-active i, .geex-sidebar-home__menu__link.active i, .geex-sidebar-home__menu__link:hover i {
+  color: var(--primary-color);
+}
+
+.geex-sidebar-home__menu__link.default-active svg path, .geex-sidebar-home__menu__link.active svg path, .geex-sidebar-home__menu__link:hover svg path {
+  fill: var(--primary-color);
+}
+
+.geex-sidebar-home__submenu {
+  display: none;
+  width: 100%;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--sectionThree-color)), to(var(--sectionTwo-color)));
+  background-image: linear-gradient(var(--sectionThree-color), var(--sectionTwo-color));
+  z-index: 1;
+  border-radius: 18px;
+  -webkit-transition: padding 0.3s ease;
+  transition: padding 0.3s ease;
+}
+
+.geex-sidebar-home__submenu .geex-sidebar-home__menu__link {
+  cursor: pointer;
+  padding: 8px 25px;
+  background: transparent;
+}
+
+.geex-sidebar-home__footer__title {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--body-color);
+  margin-bottom: 10px;
+}
+
+.geex-sidebar-home__footer__copyright {
+  margin-bottom: 18px;
+}
+
+.geex-sidebar-home__footer__author {
+  margin: 0;
+}
+
+.geex-sidebar-home__footer__author .heart-icon {
+  color: var(--danger-color);
+}
+
+.geex-sidebar-home__footer p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--sec-color);
+}
+
+.geex-sidebar-home__action__btn {
+  padding: 8px 20px;
+  color: #000;
+  background: #c4bebe;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.geex-sidebar-home__action__btn:hover {
+  background: #ccc4c4;
+}
+
+
+/*---------------------------------------
+#. Small Header Home
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+.geex-small-header-home {
+  display: none;
+  padding: 20px 0 30px;
+}
+
+.geex-small-header-home__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.geex-btn.geex-btn__toggle-sidebar-home {
+  position: absolute; /* Absolute positioning for the button */
+  left: 22px; /* Align the button to the left */
+}
+
+.geex-small-header-home h1 {
+  font-size: 2em; 
+  font-weight: bold; 
+  background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+  margin: 0; 
+}
+
+.geex-small-header-home__wrapper {
+  position: relative; /* Positioning context for the button */
+  display: flex;
+  justify-content: center; /* Center h1 horizontally */
+  align-items: center;
+}
+
+

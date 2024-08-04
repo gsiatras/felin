@@ -1,1 +1,6 @@
 config.json
+fly.toml
+.dockerignore
+.github
+__pycache__
+venv

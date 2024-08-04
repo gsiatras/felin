@@ -208,6 +208,8 @@
         $(".geex-sidebar__menu__link").not($clickedItem).siblings(".geex-sidebar__submenu").slideUp();
 	})
 
+	
+
   	// Customizer Toggle
   	$(".geex-btn__customizer").click(function() {
 		$(".geex-customizer").toggleClass("active");
@@ -230,11 +232,31 @@
 		$("body").addClass("overlay_active");
   	});
 
+	// Sidebar Home Toggle
+	$(".geex-btn__toggle-sidebar-home").click(function(e) {
+		e.preventDefault();
+		$(".geex-sidebar-home").toggleClass("active");
+		$(".geex-sidebar-home").animate({ 
+			width: "toggle" 
+		});
+		$("body").addClass("overlay_active");
+  	});
+
   	// Sidebar Close
   	$(".geex-sidebar__close").click(function(e) {
 		e.preventDefault();
 		$(".geex-sidebar").removeClass("active");
 		$(".geex-sidebar").animate({ 
+			width: "toggle" 
+		});
+		$("body").removeClass("overlay_active");
+  	});
+
+	// Sidebar Home Close
+	$(".geex-sidebar-home__close").click(function(e) {
+		e.preventDefault();
+		$(".geex-sidebar-home").removeClass("active");
+		$(".geex-sidebar-home").animate({ 
 			width: "toggle" 
 		});
 		$("body").removeClass("overlay_active");
@@ -287,6 +309,15 @@
 	
 		$popup.slideToggle();
 		$(".geex-content__header__popup").not($popup).slideUp(0);
+  	});
+
+	// Popup Home Toggle
+	$(".geex-content__header-home__quickaction__link").click(function(e) {
+		e.preventDefault();
+		var $popup = $(this).siblings('.geex-content__header-home__popup');
+	
+		$popup.slideToggle();
+		$(".geex-content__header-home__popup").not($popup).slideUp(0);
   	});
 
 

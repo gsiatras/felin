@@ -18,11 +18,14 @@ def load_user(user_id):
     # Assuming Firebase user ID is used as user_id
     return User(user_id)
 
-
 @app.route("/")
-@login_required
 def home():
-    return render_template('index.html', title='Server Management')
+    return render_template('home.html', title='Home')
+
+@app.route("/dashboard")
+@login_required
+def dashboard():
+    return render_template('index.html', title='Dashboard')
 
 
 @app.route("/signin", methods=("GET", "POST"))
@@ -91,4 +94,4 @@ def google_auth_callback():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5050)
+    app.run(debug=True,port=5055)
