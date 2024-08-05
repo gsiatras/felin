@@ -239,7 +239,6 @@
 		$(".geex-sidebar-home").animate({ 
 			width: "toggle" 
 		});
-		$("body").addClass("overlay_active");
   	});
 
   	// Sidebar Close
@@ -261,6 +260,14 @@
 		});
 		$("body").removeClass("overlay_active");
   	});
+
+	$(window).resize(function() {
+		if ($(window).width() > 1199) {
+			$(".geex-sidebar-home").removeClass("active");
+			$(".geex-sidebar-home").hide(); // Use hide instead of animate
+        	$("body").removeClass("overlay_active");
+		}
+	});
 
 	// Datepicker Open
 	$("#geex-content__filter__label").click(function() {

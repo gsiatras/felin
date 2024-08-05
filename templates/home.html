@@ -1,15 +1,33 @@
 {% extends 'partial/base-home.html' %}
 
 {% block content %}
-
-
-<div class="geex-content">
-	<div class="geex-content__header__content">
-		<h2 class="geex-content__header__title">Dashboard</h2>
-		<p class="geex-content__header__subtitle">Welcome to Felin</p>
-	</div>
+<div class="geex-first-page">
+    <div class="geex-first-page__content">
+		<div class="geex-text-button__wrapper">
+			<h1 class="geex-first-page__title">Marketing Control Shopping</h1>
+			<p class="geex-first-page__text">
+				Κάντε εγγραφή στο felin σε 1 και μόνο λεπτό και στείλτε προσωποιημενα μηνυματα, 
+				ανακοινώσεις στους φίλους, συγγενείς αλλά και πελάτες, συνεργάτες σας 
+				<br><br>
+				 
+			</p>
+			<div class="geex-home__button-wrapper">
+				<a href="signup" class="geex-home__button">						
+					<span>Get Started</span>
+				</a> 
+			</div> 
+			<p class="geex-first-page__text-2">
+				✔ Δωρεάν Εγγραφή
+				<br><br>
+				✔ Εγγύηση επιστροφή χρημώτων
+				<br><br>
+			</p>
+		</div>
+		<div class="geex-first-page__image">
+			<img src="{{ url_for('static', filename='img/digital_marketing.png') }}" alt="Digital Marketing">
+		</div>
+    </div>
 </div>
-
 {% endblock %}
 
 </body>

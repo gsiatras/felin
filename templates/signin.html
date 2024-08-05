@@ -5,10 +5,7 @@
     <div class="geex-content__authentication__content">
         <div class="geex-content__authentication__content__wrapper">
             <div class="geex-content__authentication__content__logo">
-                <a href="index">
-                    <img class="logo-lite" src="{{ url_for('static', filename='img/logo-dark.svg') }}" alt="logo">
-                    <img class="logo-dark" src="{{ url_for('static', filename='img/logo-lite.svg') }}" alt="logo">
-                </a>
+                <h1>FELiN</h1>
             </div>
             <form id="signInForm" class="geex-content__authentication__form" method="POST" action="{{ url_for('signin') }}">
                 <h2 class="geex-content__authentication__title">Sign In to Your Account 👋</h2>
@@ -63,7 +60,7 @@
         </div>
     </div>
     <div class="geex-content__authentication__img">
-        <img src="{{ url_for('static', filename='img/authentication.svg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/gifs/felin-gif.gif') }}" alt="">
     </div>
 </div>
 {% endblock %}

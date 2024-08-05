@@ -22,7 +22,7 @@ def load_user(user_id):
 def home():
     return render_template('home.html', title='Home')
 
-@app.route("/dashboard")
+@app.route("/")
 @login_required
 def dashboard():
     return render_template('index.html', title='Dashboard')
@@ -94,4 +94,4 @@ def google_auth_callback():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5055)
+    app.run(debug=True,port=5050)

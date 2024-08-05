@@ -2,7 +2,7 @@
 FROM python:3.11.9
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /project
 
 # Copy the requirements file into the container
 COPY requirements.txt requirements.txt
@@ -20,6 +20,7 @@ EXPOSE 5050
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=development
+ENV TEMPLATES_AUTO_RELOAD=True
 
 # Command to run the app
 CMD ["flask", "run", "--port=5050"]

@@ -1,0 +1,130 @@
+/*---------------------------------------
+#. First Page Home
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+.geex-first-page {
+    background-color: var(--quatinery-color--transparent); 
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    padding: 20px; 
+  }
+  
+  .geex-first-page__content {
+    display: flex;
+    flex-direction: column; /* Default to column layout for small screens */
+    max-width: 90%; /* Ensure the content doesn't stretch too wide */
+    width: 100%; /* Make sure content takes full width */
+    text-align: left; 
+    color: var(--black-color); 
+    margin-bottom: 100px;
+  }
+  
+  .geex-text-button__wrapper {
+    max-width: 600px; 
+    margin-right: 20px; /* Space between text and image */
+  }
+  
+  .geex-first-page__title {
+    font-family: 'Moret', serif;
+    font-size: 3.5em; 
+    font-weight: bold; 
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #ff00d0, #ffb300); /* Stronger colors for the title */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+  }
+  
+  .geex-first-page__text {
+    font-size: 24px; 
+  }
+  
+  .geex-first-page__image {
+    flex: 1; /* Allow image to take available space */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .geex-first-page__image img {
+    max-width: 70%;
+    height: auto;
+  }
+  
+  .geex-home__button-wrapper{
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  
+  .geex-home__button {
+    padding: 18px 100px;
+    font-size: 20px;
+    color: var(--white-color);
+    background: var(--primary-color);
+    border: 3px solid var(--white-color); /* White border */
+    border-radius: 50px; /* Rounded corners */
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .geex-home__button:hover {
+    background: var(--white-color); /* White background on hover */
+    color: var(--primary-color); /* Primary color text on hover */
+  }
+  
+  .geex-first-page__text-2 {
+    font-size: 18px; 
+    font-weight: bold;
+    background: linear-gradient(to right, #ff00d0, #ffb300); /* Stronger colors for the title */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+    padding-top: 20px; /* Small padding at the top */
+    padding-left: 30px;
+  }
+  
+  /* For screens larger than 1299px */
+  @media (min-width: 1200px) {
+    .geex-first-page__content {
+      flex-direction: row; /* Arrange items in a row for larger screens */
+    }
+  
+    .geex-text-button__wrapper {
+      flex: 1; /* Allow text and button wrapper to take available space */
+      max-width: none; /* Remove max-width restriction */
+    }
+  
+    .geex-first-page__image {
+      flex: 1; /* Allow image to take available space */
+      margin-left: 20px; /* Space between text and image */
+    }
+  }
+  
+  /* For smaller screens */
+  @media (max-width: 1199px) {
+    .geex-first-page__content {
+      flex-direction: column; /* Stack items in a column */
+      align-items: center; /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+      text-align: center; /* Center text */
+    }
+  
+    .geex-text-button__wrapper {
+      margin-bottom: 20px; /* Space between text and button wrapper and image */
+    }
+  
+    .geex-home__button-wrapper{
+      padding-left: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
