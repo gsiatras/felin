@@ -7,7 +7,7 @@
             <div class="geex-content__authentication__content__logo">
                 <h1>FELiN</h1>
             </div>
-            <form id="signInForm" class="geex-content__authentication__form" method="POST" action="{{ url_for('signin') }}">
+            <form id="signInForm" class="geex-content__authentication__form" novalidate>
                 <h2 class="geex-content__authentication__title">Sign In to Your Account 👋</h2>
                 
                 <!-- Display flash messages (if any) -->
@@ -25,11 +25,12 @@
                     <label for="emailSignIn">Your Email</label>
                     <input type="email" id="emailSignIn" name="emailSignIn" placeholder="Enter Your Email" required>
                     <i class="uil-envelope"></i>
+                    <div id="emailError" class="error-message"></div> <!-- Error message for email validation -->
                 </div>
                 <div class="geex-content__authentication__form-group">
                     <label for="loginPassword">Your Password</label>
                     <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
-                    <i class="uil-eye toggle-password-type"></i>
+                    <i class="uil-eye toggle-password-type" data-target="loginPassword"></i>
                 </div>
                 <div class="geex-content__authentication__form-group custom-checkbox">
                     <div class="geex-content__authentication__form-group__flex">
@@ -41,9 +42,9 @@
                 <button type="submit" class="geex-content__authentication__form-submit">Sign In</button>
                 <span class="geex-content__authentication__form-separator">Or</span>
                 <div class="geex-content__authentication__form-social">
-                    <a href="{{ url_for('google_signin') }}" class="geex-content__authentication__form-social__single">
+                    <button type="button" class="geex-content__authentication__form-social__single" id="googleSignInButton">
                         <img src="{{ url_for('static', filename='img/icon/google.svg') }}" alt="">Google
-                    </a>
+                    </button>
                     <a href="#" class="geex-content__authentication__form-social__single">
                         <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -54,7 +55,7 @@
                     </a>
                 </div>
                 <div class="geex-content__authentication__form-footer">
-                    Doesn't have any account? <a href="{{ url_for('signup') }}">Sign Up</a>
+                    Doesn't have an account? <a href="{{ url_for('signup') }}">Sign Up</a>
                 </div>
             </form>
         </div>
@@ -63,36 +64,15 @@
         <img src="{{ url_for('static', filename='img/gifs/felin-gif.gif') }}" alt="">
     </div>
 </div>
+
+<!-- Include Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+
+<!-- Include Firebase configuration and main script -->
+<script src="{{ url_for('static', filename='js/firebase-config.js') }}" type="module"></script>
+<script src="{{ url_for('static', filename='js/auth-signin.js') }}" type="module"></script>
+
 {% endblock %}
 
-<style>
-.flash-messages {
-    margin-bottom: 15px;
-}
-
-.flash-message.success {
-    color: green;
-}
-
-.flash-message.error {
-    color: red;
-}
-
-.geex-content__authentication__form-group__flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password {
-    margin-left: auto;
-    font-size: 0.875rem;
-    text-decoration: none;
-    color: #007bff;
-}
-
-.geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password:hover {
-    text-decoration: underline;
-}
-</style>
 

@@ -1628,6 +1628,49 @@
 		});
 	});
 
+	// Footer list open
+	document.addEventListener('DOMContentLoaded', function() {
+		var titles = document.querySelectorAll('.geex-footer__title');
+		titles.forEach(function(title) {
+			title.addEventListener('click', function() {
+				var list = this.nextElementSibling;
+				if (list.style.display === 'block') {
+					list.style.display = 'none';
+				} else {
+					list.style.display = 'block';
+				}
+			});
+		});
+	});
+
+	// Toggle password visibility
+	document.addEventListener('DOMContentLoaded', () => {
+		const togglePassword = (id) => {
+			const passwordInput = document.getElementById(id);
+			if (!passwordInput) return;
+			
+			const eyeIcon = document.querySelector(`.toggle-password-type[data-password-id="${id}"]`);
+			if (!eyeIcon) return;
+	
+			eyeIcon.addEventListener('click', () => {
+				if (passwordInput.type === 'password') {
+					passwordInput.type = 'text';
+					eyeIcon.classList.add('show');
+				} else {
+					passwordInput.type = 'password';
+					eyeIcon.classList.remove('show');
+				}
+			});
+		};
+	
+		// Initialize toggle for all password inputs
+		const passwordFields = document.querySelectorAll('.toggle-password-type');
+		passwordFields.forEach(icon => {
+			const passwordId = icon.getAttribute('data-password-id');
+			togglePassword(passwordId);
+		});
+	});
+	
 
 
 })(jQuery);

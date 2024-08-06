@@ -1,11 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 import re
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-from firebase_utils import create_user_with_email_and_password, sign_in_with_email_and_password, sign_in_with_google, google_sign_in_with_token
+from firebase_utils import initialize_firebase, verify_firebase_id_token
 from models import User
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
+initialize_firebase()
 
 # Flask-Login setup
 login_manager = LoginManager()
@@ -22,51 +23,53 @@ def load_user(user_id):
 def home():
     return render_template('home.html', title='Home')
 
-@app.route("/")
+@app.route("/dashboard")
 @login_required
 def dashboard():
     return render_template('index.html', title='Dashboard')
 
 
-@app.route("/signin", methods=("GET", "POST"))
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == 'POST':
-        email = request.form.get('emailSignIn')
-        password = request.form.get('loginPassword')
-        user, error_message = sign_in_with_email_and_password(email, password)
-        if user:
-            user_obj = User(user['localId'])  # user['localId'] is Firebase user ID
-            login_user(user_obj)
-            return redirect(url_for('home'))
-        else:
-            flash(f"Sign in failed: {error_message}", "error")
-            return redirect(url_for('signin'))
-    return render_template('signin.html', title='SignIn')
+        # Check for Google sign-in success
+        google_signin_success = request.args.get('google_signin_success')
+
+        if google_signin_success:
+            print("ASdfasdas")
+            id_token = request.form.get('idToken')  # Get Firebase ID token from form
+
+            if id_token:
+                print("1")
+                try:
+                    # Verify the ID token
+                    decoded_token = verify_firebase_id_token(id_token)
+                    uid = decoded_token['uid']
+
+                    # Create or retrieve user object
+                    user = User(uid)  # Use UID as the identifier
+
+                    # Log in the user using Flask-Login
+                    login_user(user)
+                    print("2")
+                    # Redirect to the dashboard
+                    return redirect(url_for('dashboard'))
+
+                except Exception as e:
+                    flash(f'Error signing in: {str(e)}', 'error')
+                    return redirect(url_for('signin'))
+
+    # Check for query parameters
+    signup_success = request.args.get('signup_success')
+
+    if signup_success:
+        flash('Sign up successful! Please log in.', 'success')
+    print("false")
+    return render_template('signin.html', title='Sign In')
 
 
 @app.route("/signup", methods=("GET", "POST"))
 def signup():
-    if request.method == 'POST':
-        email = request.form.get('emailSignIn')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirmPassword')
-
-        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-            flash("Invalid email address", "error")
-            return redirect(url_for('signup'))
-
-        if password != confirm_password:
-            flash("Passwords do not match", "error")
-            return redirect(url_for('signup'))
-
-        user, error_message = create_user_with_email_and_password(email, password)
-        if user:
-            flash('Sign up successful! Please log in.', 'success')
-            return redirect(url_for('signin'))
-        else:
-            flash(f"Sign up failed: {error_message}", "error")
-            return redirect(url_for('signup'))
-
     return render_template('signup.html', title='SignUp')
 
 @app.route("/logout", methods=['POST', 'GET'])
@@ -75,22 +78,6 @@ def logout():
     logout_user()
     return redirect(url_for('signin'))
 
-
-@app.route("/signin/google", methods=['POST', 'GET'])
-def google_signin():
-    return redirect(sign_in_with_google())
-
-@app.route("/signin/google/callback", methods=['POST', 'GET'])
-def google_auth_callback():
-    id_token = request.args.get('id_token')
-    user_id, error = google_sign_in_with_token(id_token)
-    if user_id:
-        user_obj = User(user_id)
-        login_user(user_obj)
-        return redirect(url_for('home'))
-    else:
-        flash(f"Google sign in failed: {error}", "error")
-        return redirect(url_for('signin'))
 
 
 if __name__ == '__main__':

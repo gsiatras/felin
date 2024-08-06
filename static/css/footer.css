@@ -1,0 +1,72 @@
+/*---------------------------------------
+#. Footer
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+
+.geex-footer {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.geex-footer__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.geex-footer__section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.geex-footer__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.geex-footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.geex-footer__item {
+    margin-bottom: 10px;
+}
+
+.geex-footer__link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.geex-footer__link:hover {
+    color: var(--primary-color);
+}
+
+/* Small screens <599px */
+@media only screen and (max-width: 599px) {
+    .geex-footer {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .geex-footer__section {
+        margin: 20px 0;
+    }
+
+    .geex-footer__title::after {
+        content: ' ▼'; /* Placeholder for arrow icon */
+        font-size: 14px;
+    }
+}

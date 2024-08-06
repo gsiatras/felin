@@ -824,6 +824,8 @@ Sidebar
   --warning-color-transparent: #FFBB5426;
   --info-color-transparent: #58CDFF26;
   --danger-color-transparent: #FF5B5B26;
+  --purple-color: #7720e7;
+  --orange-color: #ff9a3d;
   --poppins: 'Poppins', sans-serif;
 }
 
@@ -8949,7 +8951,8 @@ blockquote span:before {
 
 @media only screen and (max-width: 575px) {
   .geex-content__authentication__title {
-    font-size: 22px;
+    font-size: 18px;
+    margin: 0 0 35px;
   }
 }
 
@@ -8984,7 +8987,7 @@ blockquote span:before {
           justify-content: center;
   padding: 100px 15px;
   min-width: 750px;
-  background: var(--white-color);
+  background: var(--gray-color);
   height: 100vh;
 }
 
@@ -9017,7 +9020,7 @@ blockquote span:before {
 }
 
 .geex-content__authentication__content__logo {
-  margin: 0 0 80px;
+  margin: 0 0 40px;
 }
 
 .geex-content__authentication__content__logo h1{
@@ -9031,15 +9034,21 @@ blockquote span:before {
   display: inline-block;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 991px) {
+  .geex-content__authentication__content__logo h1{
+    font-size: 3em; 
+  }
   .geex-content__authentication__content__logo {
-    margin: 0 0 50px;
+    margin: 0 0 30px;
   }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 551px) {
+  .geex-content__authentication__content__logo h1{
+    font-size: 2em; 
+  }
   .geex-content__authentication__content__logo {
-    margin: 0 0 30px;
+    margin: 0 0 20px;
   }
 }
 
@@ -9302,6 +9311,13 @@ blockquote span:before {
           justify-content: center;
   margin: 30px 0 0;
 }
+
+@media only screen and (max-width: 899px) {
+  .geex-content__authentication__form-social {
+    margin: 0px 0 0;
+  }
+}
+
 
 .geex-content__authentication__form-social__single {
   display: -webkit-box;
@@ -12576,8 +12592,8 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 /* BEM Element and Modifier */
 .geex-header-home {
   display: none;
-  padding: 20px 0 30px;
-  background-color: var(--quatinery-color--transparent);
+  padding: 10px 0 20px;
+  background-color: var(--section-color);
 }
 
 .geex-header-home__wrapper {
@@ -12613,7 +12629,7 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
   display: flex;
   gap: 10px;
   align-items: center;
-  color: var(--primary-color);
+  color: var(--purple-color);
   padding: 10px 15px;
   transition: all 0.3s ease;
 }
@@ -12668,15 +12684,15 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 }
 
 .geex-header-home__submenu .geex-header-home__menu__link.active {
-  color: var(--primary-color);
+  color: var(--purple-color);
 }
 
 .geex-header-home__menu__item a[href="signup"] {
   display: inline-block;
   padding: 10px 20px;
-  color: var(--primary-color); 
+  color: var(--purple-color); 
   background-color: var(--section-color); 
-  border: 1px solid var(--primary-color); 
+  border: 1px solid var(--purple-color); 
   border-radius: 20px; 
   text-decoration: none;
   transition: background-color 0.3s ease, border-color 0.3s ease; 
@@ -12684,8 +12700,8 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 
 .geex-header-home__menu__item a[href="signup"]:hover {
   color: var(--white-color); 
-  background-color: var(--primary-color); 
-  border: 1px solid var(--primary-color); 
+  background-color: var(--purple-color); 
+  border: 1px solid var(--purple-color); 
 }
 
 .geex-header-home h1 {
@@ -12812,7 +12828,7 @@ Sidebar Home
   inset-inline-end: 20px;
   color: var(--white-color);
   display: none;
-  font-size: 24px; /* Adjust font size for better visibility */
+  font-size: 20px; /* Adjust font size for better visibility */
   padding: 10px; /* Space around the icon */
   border: 2px solid var(--white-color); /* White border */
   border-radius: 100%; /* Circular shape */
@@ -12880,26 +12896,17 @@ Sidebar Home
   border-radius: 18px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  font:bold;
 }
 
-@media only screen and (max-width: 575px) {
-  .geex-sidebar-home__menu__link {
-    gap: 10px;
-    font-size: 32px;
-    padding: 20px 25px;
-  }
-}
+
 
 .geex-sidebar-home__menu__link i {
   font-size: 23px;
   color: var(--grayThree-color);
 }
 
-@media only screen and (max-width: 575px) {
-  .geex-sidebar-home__menu__link i {
-    font-size: 20px;
-  }
-}
+
 
 .geex-sidebar-home__menu__link svg path {
   -webkit-transition: all 0.3s ease;
@@ -12915,11 +12922,14 @@ Sidebar Home
 
 
 .geex-sidebar-home__button-wrapper {
+  position: absolute;
+  bottom: 25%; /* Position the buttons 3/4 down the screen */
+  left: 50%;
+  transform: translate(-50%, 0); /* Center the buttons horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px; /* Space between buttons */
-  margin-bottom: auto; /* Pushes buttons to the bottom of the container */
 }
 
 .geex-sidebar-home__button {
@@ -12927,8 +12937,8 @@ Sidebar Home
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 25px 160px;
-  font-size: 26px;
+  padding: 20px 40px;
+  font-size: 18px;
   color: var(--white-color);
   background: transparent;
   border: 2px solid var(--white-color); /* White border */
@@ -12940,9 +12950,9 @@ Sidebar Home
 
 
 .geex-sidebar-home__button[href="signup"] {
-  color: var(--dark-color);
-  background-color: var(--quatinery-color); 
-  border: 2px solid var(--dark-color); 
+  color: var(--white-color);
+  background-color: var(--orange-color); 
+  border: 2px solid var(--white-color); 
 }
 
 .geex-sidebar-home__button:hover {
@@ -12951,11 +12961,34 @@ Sidebar Home
 }
 
 
+@media only screen and (max-width: 875px) {
+  .geex-sidebar-home__menu__link {
+    gap: 10px;
+    font-size: 26px;
+    padding: 20px 25px;
+  }
+
+  .geex-sidebar-home__button {
+    padding: 12px 70px;
+    font-size: 16px;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .geex-sidebar-home {
     display: none;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .geex-sidebar-home__button {
+    padding: 10px 40px;
+    font-size: 12px;
+  }
+}
+
+
+
 
 
 
@@ -12968,28 +13001,28 @@ Sidebar Home
 .geex-small-header-home {
   display: none;
   padding: 20px 0 30px;
-  background-color: var(--quatinery-color--transparent);
+  background-color: var(--section-color);
 }
 
 .geex-small-header-home__wrapper {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 22px;
+  padding: 15px 22px;
 }
 
 .geex-btn.geex-btn__toggle-sidebar-home {
   position: absolute; 
   left: 22px; 
-  color: var(--primary-color);
+  color: var(--purple-color);
   background:transparent;
-  border: 1px solid var(--primary-color); 
+  border: 1px solid var(--purple-color); 
 }
   
 .geex-btn.geex-btn__toggle-sidebar-home:hover {
   color: var(--white-color); 
-  background-color: var(--primary-color); 
-  border: 1px solid var(--primary-color); 
+  background-color: var(--purple-color); 
+  border: 1px solid var(--purple-color); 
 }
 
 .geex-small-header-home h1 {
@@ -13028,7 +13061,7 @@ Sidebar Home
 /* BEM Element and Modifier */
 
 .geex-first-page {
-  background-color: var(--quatinery-color--transparent); 
+  background-color: var(--white-color); 
   flex: 1; 
   display: flex;
   align-items: center;
@@ -13041,15 +13074,19 @@ Sidebar Home
   flex-direction: column; /* Default to column layout for small screens */
   max-width: 90%; /* Ensure the content doesn't stretch too wide */
   width: 100%; /* Make sure content takes full width */
-  text-align: left; 
+  text-align: center; /* Center text */
   color: var(--black-color); 
   margin-bottom: 100px;
+  align-items: center; /* Center items horizontally */
+
 }
 
 .geex-text-button__wrapper {
   flex: 2;
   max-width: 600px; 
-  margin-right: 20px; /* Space between text and image */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
 }
 
 .geex-first-page__title {
@@ -13073,12 +13110,14 @@ Sidebar Home
   display: flex;
   font-size: 24px;
   align-self: center; 
+  text-align: center; /* Center text */
 }
 
 .geex-first-page__image {
   flex: 1; /* Allow image to take available space */
   display: flex;
   justify-content: center;
+  align-items: center; /* Center image horizontally */
 }
 
 .geex-first-page__image img {
@@ -13087,19 +13126,17 @@ Sidebar Home
 }
 
 .geex-home__button-wrapper{
-  padding-left: 10px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center; /* Center button horizontally */
+  justify-content: center; /* Center button horizontally */
 }
-
 
 .geex-home__button {
   padding: 18px 100px;
   font-size: 20px;
   color: var(--white-color);
-  background: var(--primary-color);
-  border: 3px solid var(--white-color); /* White border */
+  background: var(--orange-color);
+  border: 3px solid var(--orange-color); /* White border */
   border-radius: 50px; /* Rounded corners */
   text-decoration: none;
   -webkit-transition: all 0.3s ease;
@@ -13107,8 +13144,9 @@ Sidebar Home
 }
 
 .geex-home__button:hover {
-  background: var(--white-color); /* White background on hover */
-  color: var(--primary-color); /* Primary color text on hover */
+  background: var(--purple-color); /* White background on hover */
+  color: var(--white-color); /* Primary color text on hover */
+  border: 3px solid var(--purple-color);
 }
 
 .geex-first-page__text-2 {
@@ -13120,18 +13158,24 @@ Sidebar Home
   color: transparent;
   display: inline-block;
   padding-top: 20px; /* Small padding at the top */
-  padding-left: 30px;
+  text-align: center; /* Center text */
 }
 
 /* For screens larger than 1299px */
 @media (min-width: 1200px) {
   .geex-first-page__content {
     flex-direction: row; /* Arrange items in a row for larger screens */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
   }
 
   .geex-text-button__wrapper {
     flex: 2; /* Allow text and button wrapper to take available space */
     max-width: none; /* Remove max-width restriction */
+    margin-right: 20px; /* Space between text and image */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
   }
 
   .geex-first-page__image {
@@ -13150,7 +13194,9 @@ Sidebar Home
   }
 
   .geex-text-button__wrapper {
-    margin-bottom: 20px; /* Space between text and button wrapper and image */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
   }
 
   .geex-home__button-wrapper{
@@ -13159,4 +13205,186 @@ Sidebar Home
     align-items: center;
     justify-content: center;
   }
+
+  .geex-first-page__title {
+    margin-bottom: 50px;
+    font-size: 82px;
+    line-height: 1.2;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+
 }
+
+@media (max-width: 899px) {
+  .geex-first-page__title {
+    margin-bottom: 20px;
+    font-size: 46px;
+    line-height: 1.2;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+
+  .geex-first-page__text {
+    font-size: 16px;
+  }
+
+  .geex-first-page__text-2 {
+    font-size: 14px;
+    padding-top: 12px;
+ }
+
+  .geex-home__button {
+    padding: 9px 60px;
+    font-size: 15px;
+  }
+
+}
+
+
+/*---------------------------------------
+#. Footer
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+
+.geex-footer {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.geex-footer__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.geex-footer__section {
+  flex: 1;
+  margin: 0 20px;
+  text-align: center; /* Center align the text */
+}
+
+.geex-footer__title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.geex-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Center align the list items */
+}
+
+.geex-footer__item {
+  margin-bottom: 10px;
+}
+
+.geex-footer__link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.geex-footer__link:hover {
+  color: var(--primary-color);
+}
+
+/* Small screens <599px */
+@media only screen and (max-width: 599px) {
+  .geex-footer {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .geex-footer__content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .geex-footer__section {
+      margin: 20px 0;
+      width: 100%;
+  }
+
+  .geex-footer__list {
+      display: none; /* Hide lists by default */
+  }
+
+  .geex-footer__title::after {
+      content: ' ▼'; /* Placeholder for arrow icon */
+      font-size: 14px;
+  }
+}
+
+
+
+.flash-messages {
+  margin-bottom: 15px;
+}
+
+.flash-message.success {
+  color: green;
+}
+
+.flash-message.error {
+  color: red;
+}
+
+.geex-content__authentication__form-group__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password {
+  margin-left: auto;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password:hover {
+  text-decoration: underline;
+}
+
+
+
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  width: 100%;
+  padding-right: 30px; /* Adjust based on eye icon size */
+}
+
+.toggle-password-type {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px; /* Adjust size as needed */
+  color: #888; /* Default color */
+}
+
+.toggle-password-type.show {
+  color: red; /* Color when password is visible */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
+}
+
+
