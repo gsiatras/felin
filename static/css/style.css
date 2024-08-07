@@ -810,6 +810,7 @@ Sidebar
   --sectionThree-color: #fcfcfc;
   --light-color: #fdfdfd;
   --white-color: #ffffff;
+  --white-fade-color: #ECEAF3;
   --success-color: #00A389;
   --warning-color: #FFBB54;
   --danger-color: #FF5B5B;
@@ -2044,10 +2045,11 @@ blockquote span:before {
 .geex-main-content-home {
   display: flex;
   flex-direction: column; /* Arrange child elements vertically */
-  gap: 70px; /* Space between items */
+  gap: 30px; /* Space between items */
   justify-content: space-between; /* Distribute space between items */
   background-color: var(--background-color); /* Ensure there's a background color */
-  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  min-height: 90vh; /* Ensure it takes at least the full viewport height */
+  padding-top: 0;
 }
 
 /* @media only screen and (max-width: 1920px) {
@@ -8945,7 +8947,7 @@ blockquote span:before {
 }
 
 .geex-content__authentication__title {
-  font-size: 25px;
+  font-size: 20px;
   margin: 0 0 43px;
 }
 
@@ -8987,7 +8989,7 @@ blockquote span:before {
           justify-content: center;
   padding: 100px 15px;
   min-width: 750px;
-  background: var(--gray-color);
+  background: var(--white-fade-color-color);
   height: 100vh;
 }
 
@@ -9309,14 +9311,10 @@ blockquote span:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 30px 0 0;
+  margin: 10px 0 20px;
 }
 
-@media only screen and (max-width: 899px) {
-  .geex-content__authentication__form-social {
-    margin: 0px 0 0;
-  }
-}
+
 
 
 .geex-content__authentication__form-social__single {
@@ -9331,12 +9329,12 @@ blockquote span:before {
       -ms-flex-pack: center;
           justify-content: center;
   height: 46px;
-  padding: 0 16px;
+  padding: 0 50px;
   border-radius: 12px;
   background: transparent;
   color: var(--body-color);
   border-radius: 12px;
-  border: 1px solid var(--gray-color);
+  border: 1px solid var(--primary-color);
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
@@ -9346,10 +9344,24 @@ blockquote span:before {
   border-color: var(--primary-color);
 }
 
+@media only screen and (max-width: 549px) {
+  .geex-content__authentication__form-social {
+    flex-direction: column;
+    margin: 0px 0 20px;
+  }
+
+  .geex-content__authentication__form-social__single {
+    width: 100%; /* Make buttons full-width */
+    max-width: 300px; /* Optionally limit the max-width */
+    height: 56px; /* Increase the height */
+    padding: 0 20px; /* Adjust padding */
+    font-size: 18px; /* Increase font size */
+  }
+}
 .geex-content__authentication__form-social__single img,
 .geex-content__authentication__form-social__single svg {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
 }
 
 .geex-content__authentication__form-separator {
@@ -12593,7 +12605,7 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 .geex-header-home {
   display: none;
   padding: 10px 0 20px;
-  background-color: var(--section-color);
+  background-color: var(--white-fade-color);
 }
 
 .geex-header-home__wrapper {
@@ -12988,6 +13000,9 @@ Sidebar Home
 }
 
 
+.white-icon {
+  filter: invert(1); /* Inverts the color to white */
+}
 
 
 
@@ -13001,7 +13016,7 @@ Sidebar Home
 .geex-small-header-home {
   display: none;
   padding: 20px 0 30px;
-  background-color: var(--section-color);
+  background-color: var(--white-fade-color);
 }
 
 .geex-small-header-home__wrapper {
@@ -13061,29 +13076,28 @@ Sidebar Home
 /* BEM Element and Modifier */
 
 .geex-first-page {
-  background-color: var(--white-color); 
+  background-color: var(--white-fade-color); 
   flex: 1; 
   display: flex;
-  align-items: center;
-  justify-content: center; /* Center the content horizontally */
-  padding: 20px; 
+  align-items: flex-start;
+  justify-content: flex-start; /* Center the content horizontally */
 }
 
 .geex-first-page__content {
   display: flex;
   flex-direction: column; /* Default to column layout for small screens */
-  max-width: 90%; /* Ensure the content doesn't stretch too wide */
+  max-width: 100%; /* Ensure the content doesn't stretch too wide */
   width: 100%; /* Make sure content takes full width */
   text-align: center; /* Center text */
   color: var(--black-color); 
-  margin-bottom: 100px;
   align-items: center; /* Center items horizontally */
-
+  margin-top: 50px;
+  margin-right: 30px;
 }
 
 .geex-text-button__wrapper {
   flex: 2;
-  max-width: 600px; 
+  max-width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
@@ -13091,26 +13105,27 @@ Sidebar Home
 
 .geex-first-page__title {
   font-weight: bold; 
-  margin-bottom: 70px;
+  margin-bottom: 10px;
   background: linear-gradient(90deg,#7720e7,#ff9a3d);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: inline-block;
   font-family: Moret,serif;
-  font-size: 82px;
+  font-size: 64px;
   font-weight: 500;
   line-height: 1.2;
-  margin-top: 80px;
   padding-right: 10px;
   text-align: center;
+  margin-left: 30px;
 }
 
 .geex-first-page__text {
   display: flex;
-  font-size: 24px;
+  font-size: 16px;
   align-self: center; 
   text-align: center; /* Center text */
+  margin-left: 30px;
 }
 
 .geex-first-page__image {
@@ -13118,6 +13133,7 @@ Sidebar Home
   display: flex;
   justify-content: center;
   align-items: center; /* Center image horizontally */
+  max-width: 100%;
 }
 
 .geex-first-page__image img {
@@ -13141,6 +13157,7 @@ Sidebar Home
   text-decoration: none;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  margin-left: 30px;
 }
 
 .geex-home__button:hover {
@@ -13150,7 +13167,7 @@ Sidebar Home
 }
 
 .geex-first-page__text-2 {
-  font-size: 18px; 
+  font-size: 14px; 
   font-weight: bold;
   background: linear-gradient(90deg,#7720e7,#ff9a3d);
   -webkit-background-clip: text;
@@ -13159,47 +13176,60 @@ Sidebar Home
   display: inline-block;
   padding-top: 20px; /* Small padding at the top */
   text-align: center; /* Center text */
+  margin-left: 30px;
 }
 
-/* For screens larger than 1299px */
+/* Ensure iframe or video fits within its container */
+.geex-first-page__image iframe,
+.geex-first-page__image video {
+  width: 100%; /* Ensure the iframe or video takes the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100%; /* Ensure it does not exceed the container’s height */
+  border: none; /* Remove any default border or outline */
+}
+
+/* Adjust layout for larger screens */
 @media (min-width: 1200px) {
   .geex-first-page__content {
     flex-direction: row; /* Arrange items in a row for larger screens */
     align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+    justify-content: space-between; /* Distribute space between items */
+  }
+
+  .geex-text-button__wrapper,
+  .geex-first-page__image {
+    flex: 1; /* Allow both sections to take equal space */
+    max-width: 50%; /* Limit width to 50% */
   }
 
   .geex-text-button__wrapper {
-    flex: 2; /* Allow text and button wrapper to take available space */
-    max-width: none; /* Remove max-width restriction */
-    margin-right: 20px; /* Space between text and image */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    margin-right: 20px; /* Space between text and video */
   }
 
   .geex-first-page__image {
-    flex: 1; /* Allow image to take available space */
-    margin-left: 20px; /* Space between text and image */
+    margin-left: 20px; /* Space between text and video */
   }
 }
 
-/* For smaller screens */
+/* Adjust layout for smaller screens */
 @media (max-width: 1199px) {
   .geex-first-page__content {
     flex-direction: column; /* Stack items in a column */
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
     text-align: center; /* Center text */
+    max-width: 100%;
+    margin-right: 30px;
   }
 
   .geex-text-button__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center items horizontally */
+    max-width: 100%;
   }
 
-  .geex-home__button-wrapper{
+  .geex-home__button-wrapper {
     padding-left: 0px;
     display: flex;
     align-items: center;
@@ -13214,7 +13244,14 @@ Sidebar Home
     padding-left: 10px;
   }
 
+  .geex-first-page__image{
+    margin-left: 30px;
+  }
 
+  .geex-first-page__trusted_by {
+    margin-left: 30px;
+    border-radius: 20px;
+  }
 }
 
 @media (max-width: 899px) {
@@ -13224,6 +13261,7 @@ Sidebar Home
     line-height: 1.2;
     margin-top: 10px;
     padding-left: 10px;
+    margin-right: 30px;
   }
 
   .geex-first-page__text {
@@ -13233,7 +13271,7 @@ Sidebar Home
   .geex-first-page__text-2 {
     font-size: 14px;
     padding-top: 12px;
- }
+  }
 
   .geex-home__button {
     padding: 9px 60px;
@@ -13243,29 +13281,115 @@ Sidebar Home
 }
 
 
+.geex-first-page__trusted_by {
+  background-color: var(--purple-color); /* Set background color to purple */
+  padding: 20px; /* Add padding around the section */
+  display: flex; /* Use flexbox to align items */
+  flex-direction: row; /* Default to row layout */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Make sure the section takes the full width */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.geex-first-page__trusted_by h1 {
+  font-size: 24px; /* Adjust the font size */
+  color: var(--white-color); /* Text color */
+  margin: 0; /* Remove default margin */
+  flex: 1; /* Allow heading to take available space */
+}
+
+.geex-trusted-by__icons {
+  display: flex; /* Use flexbox for row layout */
+  gap: 20px; /* Space between icons */
+  align-items: center; /* Center items vertically */
+  flex: 2; /* Allow icons to take available space */
+  justify-content: space-between;
+}
+
+.geex-trusted-by__icon {
+  background-color: var(--purple-color); /* Background color for each icon */
+  border-radius: 50%; /* Round the background */
+  padding: 10px; /* Add padding around the icon */
+  display: flex; /* Flexbox for centering icon and text */
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  width: 60px; /* Adjust width */
+  height: 60px; /* Adjust height */
+}
+
+.geex-trusted-by__icon img {
+  width: 100%; /* Make the image fill its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.icon-name {
+  color: var(--white-color); /* Text color */
+  font-size: 12px; /* Adjust font size */
+  margin-top: 5px; /* Space between icon and text */
+}
+
+@media (max-width: 899px) {
+  .geex-first-page__trusted_by {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 20px; /* Reduce bottom margin for smaller screens */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .geex-first-page__trusted_by h1 {
+    font-size: 18px; /* Smaller font size */
+    margin-bottom: 10px; /* Space below heading */
+  }
+
+  .geex-trusted-by__icons {
+    flex-direction: row; /* Keep icons in a row */
+    gap: 10px; /* Reduce space between icons */
+  }
+
+  .geex-trusted-by__icon {
+    width: 50px; /* Adjust size for mobile */
+    height: 50px; /* Adjust size for mobile */
+  }
+
+  .icon-name {
+    font-size: 10px; /* Smaller font size */
+    margin-top: 3px; /* Space between icon and text */
+  }
+}
+
+
 /*---------------------------------------
 #. Footer
 ---------------------------------------*/
 
 /* BEM Element and Modifier */
 
-
 .geex-footer {
   background-color: black;
   color: white;
   padding: 40px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .geex-footer__content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.geex-footer__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .geex-footer__section {
@@ -13302,21 +13426,74 @@ Sidebar Home
   color: var(--primary-color);
 }
 
+.geex-footer__section--brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.geex-footer__brand-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.geex-footer___logo_title {
+  color: var(--white-color);
+}
+
+.geex-footer__section--additional {
+  width: 100%; /* Full width for the additional section */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.geex-footer__additional-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.geex-footer__additional-link-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+  font-size: 12px; /* Smaller font size */
+}
+
+.geex-footer__additional-link-row svg {
+  width: 16px; /* Adjusted SVG size */
+  height: 16px; /* Adjusted SVG size */
+  margin-right: 5px; /* Add some space between SVG and text */
+}
+
+.geex-footer__additional-footer {
+  font-size: 8px; /* Even smaller font size */
+  text-align: center;
+}
+
+/* Small screens <599px */
 /* Small screens <599px */
 @media only screen and (max-width: 599px) {
   .geex-footer {
-      flex-direction: column;
       padding: 20px;
   }
 
-  .geex-footer__content {
+  .geex-footer__main {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* Align main sections to the left */
   }
 
   .geex-footer__section {
       margin: 20px 0;
       width: 100%;
+      text-align: left; /* Align text to the left */
   }
 
   .geex-footer__list {
@@ -13327,7 +13504,30 @@ Sidebar Home
       content: ' ▼'; /* Placeholder for arrow icon */
       font-size: 14px;
   }
+
+  .geex-footer__additional-links {
+      width: 100%;
+      align-items: flex-start; /* Align to the left */
+  }
+
+  .geex-footer__additional-link-row {
+      flex-direction: column;
+      align-items: flex-start; /* Align to the left */
+      gap: 5px;
+  }
+
+  .geex-footer__additional-footer {
+      margin-top: 10px;
+  }
+
+  .geex-footer__item {
+      align-items: flex-start;
+      text-align: left; 
+  }
 }
+
+
+
 
 
 

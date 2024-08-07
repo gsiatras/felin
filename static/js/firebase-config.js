@@ -1,6 +1,6 @@
 // Import the necessary functions from the Firebase SDK
 import { initializeApp  } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, FacebookAuthProvider} from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,7 +21,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const googleProvider = new GoogleAuthProvider();
+
+const facebookProvider = new FacebookAuthProvider();
 // Export auth instance and createUserWithEmailAndPassword function
-export { auth, createUserWithEmailAndPassword, googleProvider, signInWithPopup, signInWithEmailAndPassword};
+export { auth, createUserWithEmailAndPassword, googleProvider, signInWithPopup, signInWithEmailAndPassword, facebookProvider};
 
 

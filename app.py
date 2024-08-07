@@ -31,16 +31,21 @@ def dashboard():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    if request.method == 'GET':
+        signup_success = request.args.get('signup_success')
+        print(signup_success)
+        if signup_success:
+            flash('Sign up successful! Please log in.', 'success')
+            return render_template('signin.html', title='Sign In')
+        
     if request.method == 'POST':
         # Check for Google sign-in success
-        google_signin_success = request.args.get('google_signin_success')
+        signin_success = request.args.get('signin_success')
 
-        if google_signin_success:
-            print("ASdfasdas")
+        if signin_success:
             id_token = request.form.get('idToken')  # Get Firebase ID token from form
 
             if id_token:
-                print("1")
                 try:
                     # Verify the ID token
                     decoded_token = verify_firebase_id_token(id_token)
@@ -51,26 +56,20 @@ def signin():
 
                     # Log in the user using Flask-Login
                     login_user(user)
-                    print("2")
                     # Redirect to the dashboard
                     return redirect(url_for('dashboard'))
 
                 except Exception as e:
                     flash(f'Error signing in: {str(e)}', 'error')
                     return redirect(url_for('signin'))
-
-    # Check for query parameters
-    signup_success = request.args.get('signup_success')
-
-    if signup_success:
-        flash('Sign up successful! Please log in.', 'success')
-    print("false")
     return render_template('signin.html', title='Sign In')
 
 
-@app.route("/signup", methods=("GET", "POST"))
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
     return render_template('signup.html', title='SignUp')
+
+
 
 @app.route("/logout", methods=['POST', 'GET'])
 @login_required

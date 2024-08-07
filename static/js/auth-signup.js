@@ -1,5 +1,4 @@
-// Import Firebase auth functions
-import { auth, createUserWithEmailAndPassword, googleProvider, signInWithPopup } from './firebase-config.js';
+import { handleSignUp, handleGoogleSignIn, handleFacebookSignIn } from './firebase_utils.js';
 
 // Function to toggle password visibility
 function togglePassword(inputId, iconElement) {
@@ -14,13 +13,6 @@ function togglePassword(inputId, iconElement) {
     }
 }
 
-// Attach event listeners for password visibility toggle
-document.querySelectorAll('.toggle-password-type').forEach(icon => {
-    icon.addEventListener('click', function() {
-        const inputId = this.getAttribute('data-target');
-        togglePassword(inputId, this);
-    });
-});
 
 // Function to validate email format
 function validateEmail() {
@@ -65,75 +57,51 @@ function toggleSignUpButton() {
     var signUpButton = document.querySelector('.geex-content__authentication__form-submit');
     var emailValid = validateEmail();
     var passwordsValid = validatePasswords();
+    var termsChecked = document.getElementById('agreeTerms').checked;
     
-    // Enable the button only if both validations are true
-    signUpButton.disabled = !(emailValid && passwordsValid);
+    // Enable the button only if all validations are true and terms are checked
+    signUpButton.disabled = !(emailValid && passwordsValid && termsChecked);
 }
 
-// Function to handle sign-up
-async function handleSignUp(event) {
+// Function to handle form submission
+document.getElementById('signInForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Prevent form submission
+    
+    var termsChecked = document.getElementById('agreeTerms').checked;
+
+    if (!termsChecked) {
+        // Display error message if terms are not checked
+        document.getElementById('termsError').textContent = 'You must agree to the terms and conditions.';
+        return; // Stop form submission
+    }
+
+    // Clear the error message if terms are agreed
+    document.getElementById('termsError').textContent = '';
 
     var email = document.getElementById('emailSignIn').value;
     var password = document.getElementById('loginPassword').value;
 
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        // User signed up successfully
-        console.log('User signed up:', userCredential.user);
-
-        // Redirect to sign-in page with a query parameter indicating success
-        window.location.href = '/signin?signup_success=true';
-    } catch (error) {
-        // Handle sign-up errors
-        console.error('Error signing up:', error.message);
-        alert('Error signing up: ' + error.message);
-    }
-}
-
-async function handleGoogleSignIn() {
-    try {
-        const result = await signInWithPopup(auth, googleProvider);
-        // User signed in successfully
-        console.log('User signed in with Google:', result.user);
-
-        // Get Firebase ID token
-        const idToken = await result.user.getIdToken();
-
-        // Send ID token to server with google_signin_success parameter
-        await fetch('/signin?google_signin_success=true', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'idToken': idToken
-            })
-        });
-
-        // Redirect to dashboard if needed (optional)
-        window.location.href = '/dashboard';
-    
-    } catch (error) {
-        console.error('Error signing in with Google:', error.message);
-        alert('Error signing in with Google: ' + error.message);
-    }
-}
-
-
+    await handleSignUp(email, password);
+});
 
 // Attach event listeners for real-time validation
 document.getElementById('emailSignIn').addEventListener('input', toggleSignUpButton);
 document.getElementById('loginPassword').addEventListener('input', toggleSignUpButton);
 document.getElementById('confirmPassword').addEventListener('input', toggleSignUpButton);
+document.getElementById('agreeTerms').addEventListener('change', toggleSignUpButton); // Add this listener
 
-// Attach event listener for form submission
-document.getElementById('signInForm').addEventListener('submit', handleSignUp);
 
 // Initial validation to set button state on page load
 document.addEventListener('DOMContentLoaded', toggleSignUpButton);
 
 // Attach event listener for Google sign-in button
 document.getElementById('googleSignInButton').addEventListener('click', handleGoogleSignIn);
+document.getElementById('facebookSignInButton').addEventListener('click', handleFacebookSignIn);
 
-
+// Attach event listeners for password visibility toggle
+document.querySelectorAll('.toggle-password-type').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const inputId = this.getAttribute('data-target');
+        togglePassword(inputId, this);
+    });
+});

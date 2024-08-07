@@ -1,0 +1,498 @@
+.geex-content__authentication {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--section-color);
+  }
+  
+  .geex-content__authentication__title {
+    font-size: 25px;
+    margin: 0 0 43px;
+  }
+  
+  @media only screen and (max-width: 575px) {
+    .geex-content__authentication__title {
+      font-size: 18px;
+      margin: 0 0 35px;
+    }
+  }
+  
+  .geex-content__authentication__desc {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 25px;
+    color: var(--sec-color);
+  }
+  
+  .geex-content__authentication__desc .verification-number {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0 0;
+    color: var(--body-color);
+  }
+  
+  .geex-content__authentication__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 100px 15px;
+    min-width: 750px;
+    background: var(--gray-color);
+    height: 100vh;
+  }
+  
+  @media only screen and (max-width: 1440px) {
+    .geex-content__authentication__content {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      padding: 50px 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 1199px) {
+    .geex-content__authentication__content {
+      min-width: 100%;
+    }
+  }
+  
+  .geex-content__authentication__content__wrapper {
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    /* Scrollbar Width */
+  }
+  
+  .geex-content__authentication__content__wrapper::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .geex-content__authentication__content__logo {
+    margin: 0 0 40px;
+  }
+  
+  .geex-content__authentication__content__logo h1{
+    font-size: 4em; 
+    font-weight: bold; 
+    background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    margin: 0; 
+    display: inline-block;
+  }
+  
+  @media only screen and (max-width: 991px) {
+    .geex-content__authentication__content__logo h1{
+      font-size: 3em; 
+    }
+    .geex-content__authentication__content__logo {
+      margin: 0 0 30px;
+    }
+  }
+  
+  @media only screen and (max-width: 551px) {
+    .geex-content__authentication__content__logo h1{
+      font-size: 2em; 
+    }
+    .geex-content__authentication__content__logo {
+      margin: 0 0 20px;
+    }
+  }
+  
+  .geex-content__authentication__content__logo img {
+    margin: 0 auto;
+  }
+  
+  .geex-content__authentication__img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 70px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--white-color);
+  }
+  
+  .geex-content__authentication__img img {
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 1440px) {
+    .geex-content__authentication__img {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      padding: 0 50px;
+    }
+  }
+  
+  @media only screen and (max-width: 1199px) {
+    .geex-content__authentication__img {
+      display: none;
+    }
+  }
+  
+  .geex-content__authentication__form {
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  
+  .geex-content__authentication__form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 14px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: start;
+    position: relative;
+  }
+  
+  .geex-content__authentication__form-group__code {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .geex-content__authentication__form-group__code input {
+    height: 50px;
+    width: 68px;
+    padding: 0 15px !important;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid var(--gray-color);
+  }
+  
+  .geex-content__authentication__form-group__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .geex-content__authentication__form-group label {
+    font-size: 16px;
+    color: var(--body-color);
+  }
+  
+  .geex-content__authentication__form-group input {
+    height: 56px;
+    padding: 0 23px;
+    margin: 0 0 23px;
+    border-radius: 12px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-color);
+  }
+  
+  .geex-content__authentication__form-group input::-webkit-input-placeholder {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.75;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__form-group input::-moz-placeholder {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.75;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__form-group input::-ms-input-placeholder {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.75;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__form-group input::placeholder {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.75;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  .geex-content__authentication__form-group input[type="checkbox"] {
+    display: none;
+  }
+  
+  .geex-content__authentication__form-group input[type="checkbox"]:checked + label:before {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-group input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+  
+  .geex-content__authentication__form-group i {
+    position: absolute;
+    bottom: 38px;
+    inset-inline-end: 23px;
+    font-size: 20px;
+    color: var(--sec-color);
+  }
+  
+  .geex-content__authentication__form-group .geex-content__authentication__checkbox-label {
+    position: relative;
+    -webkit-padding-start: 25px;
+            padding-inline-start: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__form-group .geex-content__authentication__checkbox-label a {
+    color: var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-group .geex-content__authentication__checkbox-label:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    inset-inline-start: 0;
+    top: 3px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-group .geex-content__authentication__checkbox-label:after {
+    content: '\e9c3';
+    font-family: 'unicons-line';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    inset-inline-start: 0;
+    top: 4px;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--white-color);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .geex-content__authentication__label-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .geex-content__authentication__label-wrapper a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--desc-color);
+  }
+  
+  .geex-content__authentication__label-wrapper a:hover {
+    color: var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-submit {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    margin: 28px 0 24px;
+    border: none;
+    border-radius: 12px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white-color);
+    background: var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-submit.return-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: var(--body-color);
+    background-color: var(--primary-color-transparent);
+  }
+  
+  .geex-content__authentication__form-submit:hover {
+    opacity: 0.9;
+  }
+  
+  .geex-content__authentication__form-social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 10px 0 20px;
+  }
+  
+  @media only screen and (max-width: 549px) {
+    .geex-content__authentication__form-social {
+      flex-direction: column;
+      margin: 0px 0 20px;
+    }
+  
+    /* Increase the size of individual social buttons */
+    .geex-content__authentication__form-social__single {
+      width: 100%; /* Make buttons full-width */
+      max-width: 300px; /* Optionally limit the max-width */
+      height: 56px; /* Increase the height */
+      padding: 0 20px; /* Adjust padding */
+      font-size: 18px; /* Increase font size */
+    }
+  }
+  
+  
+  .geex-content__authentication__form-social__single {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 46px;
+    padding: 0 50px;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--body-color);
+    border-radius: 12px;
+    border: 1px solid var(--gray-color);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .geex-content__authentication__form-social__single:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .geex-content__authentication__form-social__single img,
+  .geex-content__authentication__form-social__single svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .geex-content__authentication__form-separator {
+    position: relative;
+    padding: 0 15px;
+  }
+  
+  .geex-content__authentication__form-separator:before, .geex-content__authentication__form-separator:after {
+    content: '';
+    width: 180px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    background: var(--gray-color);
+  }
+  
+  @media only screen and (max-width: 575px) {
+    .geex-content__authentication__form-separator:before, .geex-content__authentication__form-separator:after {
+      width: 150px;
+    }
+  }
+  
+  @media only screen and (max-width: 479px) {
+    .geex-content__authentication__form-separator:before, .geex-content__authentication__form-separator:after {
+      width: 100px;
+    }
+  }
+  
+  .geex-content__authentication__form-separator:before {
+    inset-inline-start: 100%;
+  }
+  
+  .geex-content__authentication__form-separator:after {
+    inset-inline-end: 100%;
+  }
+  
+  .geex-content__authentication__form-footer {
+    margin: 16px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--desc-color);
+    text-transform: capitalize;
+  }
+  
+  .geex-content__authentication__form-footer a {
+    color: var(--primary-color);
+    -webkit-padding-start: 5px;
+            padding-inline-start: 5px;
+  }
+  
+  .geex-content__authentication--forgot-password .geex-content__authentication__title {
+    margin: 0 0 25px;
+  }
+  
+  .geex-content__authentication--forgot-password .geex-content__authentication__desc {
+    margin: 0 0 40px;
+  }
+  
+  .geex-content__authentication--forgot-password .geex-content__authentication__form-group input {
+    margin: 0;
+  }
+  
+  .geex-content__authentication--forgot-password .geex-content__authentication__form-group i {
+    bottom: 15px;
+  }
+  
+  .geex-content__authentication--forgot-password .geex-content__authentication__form-submit {
+    margin: 20px 0 0;
+  }

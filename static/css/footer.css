@@ -4,69 +4,196 @@
 
 /* BEM Element and Modifier */
 
-
 .geex-footer {
     background-color: black;
     color: white;
     padding: 40px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-}
-
-.geex-footer__content {
+  }
+  
+  .geex-footer__content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.geex-footer__section {
+  }
+  
+  .geex-footer__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .geex-footer__section {
     flex: 1;
     margin: 0 20px;
-}
-
-.geex-footer__title {
+    text-align: center; /* Center align the text */
+  }
+  
+  .geex-footer__title {
     font-size: 18px;
     margin-bottom: 20px;
     font-weight: bold;
-}
-
-.geex-footer__list {
+    cursor: pointer;
+  }
+  
+  .geex-footer__list {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.geex-footer__item {
+    text-align: center; /* Center align the list items */
+  }
+  
+  .geex-footer__item {
     margin-bottom: 10px;
-}
-
-.geex-footer__link {
+  }
+  
+  .geex-footer__link {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.geex-footer__link:hover {
+  }
+  
+  .geex-footer__link:hover {
     color: var(--primary-color);
-}
-
-/* Small screens <599px */
-@media only screen and (max-width: 599px) {
+  }
+  
+  .geex-footer__section--brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .geex-footer__brand-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .geex-footer___logo_title {
+    color: var(--white-color);
+  }
+  
+  .geex-footer__section--additional {
+    width: 100%; /* Full width for the additional section */
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .geex-footer__additional-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .geex-footer__additional-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px;
+    font-size: 12px; /* Smaller font size */
+  }
+  
+  .geex-footer__additional-link-row svg {
+    width: 16px; /* Adjusted SVG size */
+    height: 16px; /* Adjusted SVG size */
+    margin-right: 5px; /* Add some space between SVG and text */
+  }
+  
+  .geex-footer__additional-footer {
+    font-size: 8px; /* Even smaller font size */
+    text-align: center;
+  }
+  
+  /* Small screens <599px */
+  /* Small screens <599px */
+  @media only screen and (max-width: 599px) {
     .geex-footer {
-        flex-direction: column;
         padding: 20px;
     }
-
+  
+    .geex-footer__main {
+        flex-direction: column;
+        align-items: flex-start; /* Align main sections to the left */
+    }
+  
     .geex-footer__section {
         margin: 20px 0;
+        width: 100%;
+        text-align: left; /* Align text to the left */
     }
-
+  
+    .geex-footer__list {
+        display: none; /* Hide lists by default */
+    }
+  
     .geex-footer__title::after {
         content: ' ▼'; /* Placeholder for arrow icon */
         font-size: 14px;
     }
-}
+  
+    .geex-footer__additional-links {
+        width: 100%;
+        align-items: flex-start; /* Align to the left */
+    }
+  
+    .geex-footer__additional-link-row {
+        flex-direction: column;
+        align-items: flex-start; /* Align to the left */
+        gap: 5px;
+    }
+  
+    .geex-footer__additional-footer {
+        margin-top: 10px;
+    }
+  
+    .geex-footer__item {
+        align-items: flex-start;
+        text-align: left; 
+    }
+  }
+  
+  
+  
+  
+  
+  
+  .flash-messages {
+    margin-bottom: 15px;
+  }
+  
+  .flash-message.success {
+    color: green;
+  }
+  
+  .flash-message.error {
+    color: red;
+  }
+  
+  .geex-content__authentication__form-group__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password {
+    margin-left: auto;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .geex-content__authentication__form-group__flex .geex-content__authentication__forgot-password:hover {
+    text-decoration: underline;
+  }
+  
