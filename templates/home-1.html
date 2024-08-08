@@ -1,0 +1,31 @@
+{% block content %}
+<div class="geex-second-page">
+    <div class="geex-second-page__content">
+		<div class="geex-second-page__main_content">
+			<h1 class="geex-second-page__heading">
+				Η FELiN είναι η Νο1 πλατφόρμα Β2Β στην Ελλάδα
+			</h1>
+			<p class="geex-second-page__text1">
+				Συνεργαστείτε με την FELiN για να προσωποποιήσετε τις πωλήσεις σας
+			</p>
+			<div class="geex-second-home__button-wrapper">
+				<a href="signup" class="geex-second-home__button">						
+					<span>Εγγραφή</span>
+				</a> 
+			</div> 
+		</div>
+		<div class="geex-second-page__video">
+			<video src="{{ url_for('static', filename='videos/merchant_generic.mp4') }}" 
+                   autoplay 
+                   loop 
+                   muted 
+                   playsinline 
+                   width="100%" 
+                   height="auto">
+                Your browser does not support the video tag.
+            </video>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

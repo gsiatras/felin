@@ -826,9 +826,40 @@ Sidebar
   --info-color-transparent: #58CDFF26;
   --danger-color-transparent: #FF5B5B26;
   --purple-color: #7720e7;
+  --purple-color-transparent: rgba(119, 32, 231, 0.5);
   --orange-color: #ff9a3d;
   --poppins: 'Poppins', sans-serif;
+  --transparent-color: rgba(255, 255, 255, 0.64);
 }
+
+@font-face {
+  font-family: 'Omnes';
+  src: url('/static/fonts/omnes-2/Omnes Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Omnes';
+  src: url('/static/fonts/omnes-2/Omnes Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold; /* Correct style */
+}
+
+@font-face {
+  font-family: 'Geologica';
+  src: url('/static/fonts/Geologica/static/Geologica-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geologica';
+  src: url('/static/fonts/Geologica/static/Geologica_Auto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold; /* Correct style */
+}
+
 
 /*---------------------------------------
 #. General
@@ -2049,34 +2080,38 @@ blockquote span:before {
   justify-content: space-between; /* Distribute space between items */
   background-color: var(--background-color); /* Ensure there's a background color */
   min-height: 90vh; /* Ensure it takes at least the full viewport height */
-  padding-top: 0;
+  padding-top: 80px;
 }
 
-/* @media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1920px) {
   .geex-main-content-home {
-    gap: 50px;
-    padding-inline-start: 380px;
+    padding-top: 70px;
   }
 }
 
 @media only screen and (max-width: 1600px) {
   .geex-main-content-home {
-    gap: 40px;
-    padding-inline-start: 370px;
+    padding-top: 60px;
   }
 }
 
 @media only screen and (max-width: 1440px) {
   .geex-main-content-home {
-    padding-inline-start: 340px;
+    padding-top: 50px;
   }
 }
 
 @media only screen and (max-width: 1199px) {
   .geex-main-content-home {
-    padding-inline-start: 22px; /* Adjust padding for smaller screens */
-  /* }
-} */ */
+    padding-top: 40px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  .geex-main-content-home {
+    padding-top: 30px; /* Adjust padding for smaller screens */
+  }
+}
 
 .geex-content {
   -webkit-box-flex: 1;
@@ -12601,61 +12636,103 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 #. Header Home
 ---------------------------------------*/
 
-/* BEM Element and Modifier */
 .geex-header-home {
-  display: none;
-  padding: 10px 0 20px;
-  background-color: var(--white-fade-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it's above other content */
+  padding: 10px 0;
+  background-color: var(--transparent-color);
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
+  font-weight: 500;
+  transition: box-shadow 0.3s ease;
+  -webkit-backdrop-filter: blur(7.5px);
+  backdrop-filter: blur(7.5px);
+}
+
+.geex-header-home.with-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .geex-header-home__wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 0 22px;
+  justify-content: space-between; /* Ensures space between elements */
   align-items: center;
+  padding: 0 22px;
+  text-align: center;
 }
 
 .geex-header-home__menu-wrapper:first-of-type {
-  flex: 1;
-  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  flex: 1; /* Allows the logo to take up space on the left */
+  justify-content: left;
 }
 
 .geex-header-home__menu-wrapper:last-of-type {
-  flex: 1;
-  justify-content: flex-end;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  flex: 1; /* Allows the menu to be pushed to the right */
+  justify-content: flex-end; /* Pushes menu to the right */
 }
+
+.geex-header-home__menu__home {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+
+.geex-header-home__menu__home:hover {
+  color: black;
+}
+
 
 .geex-header-home__menu {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  padding-left: 10px;
 }
 
 .geex-header-home__menu__item {
   position: relative;
+  padding-left: 10px;
 }
+
 
 .geex-header-home__menu__item a {
   display: flex;
   gap: 10px;
   align-items: center;
-  color: var(--purple-color);
-  padding: 10px 15px;
+  color: var(--dark-color);
+  padding: 10px 5px;
   transition: all 0.3s ease;
+  font-size: 13px;
 }
 
 .geex-header-home__submenu__item a {
   display: flex;
   gap: 5px;
   align-items: center;
-  color: var(--white-color);
+  color: var(--dark-color);
   padding: 10px 15px;
   transition: all 0.3s ease;
 }
 
-.geex-header-home__menu__item a svg {
+.geex-header-home__submenu__item a:hover {
+  background-color: var(--gray-color);
+  border-radius: 13px;
+}
+
+.geex-header-home__submenu {
+  transition: height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
+}
+
+.geex-header-home__menu__item a svg.icon {
   width: 15px; 
   height: 15px; 
 }
@@ -12665,7 +12742,7 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
   transition: all 0.3s ease;
 }
 
-.geex-header-home__menu__item:hover .geex-header-home__submenu {
+.geex-header-home__menu__item:not(.merchant):hover .geex-header-home__submenu {
   height: auto;
   opacity: 1;
   visibility: visible;
@@ -12679,7 +12756,7 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
   width: 100%;
   min-width: 200px;
   padding: 15px 0;
-  background-color: var(--primary-color);
+  background-color: var(--white-color);
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   z-index: 1;
@@ -12703,7 +12780,7 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
   display: inline-block;
   padding: 10px 20px;
   color: var(--purple-color); 
-  background-color: var(--section-color); 
+  background-color: var(--transparent-color); 
   border: 1px solid var(--purple-color); 
   border-radius: 20px; 
   text-decoration: none;
@@ -12717,12 +12794,9 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
 }
 
 .geex-header-home h1 {
-  font-size: 2.5em; 
+  font-size: 28px; 
   font-weight: bold; 
-  background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text; 
+  color: #000;
   margin: 0; 
 }
 
@@ -12734,52 +12808,35 @@ html[dir="rtl"] .geex-content__todo__header__filter__sortby i {
   display: none;
 }
 
-
 .geex-header-home__submenu {
   z-index: 20;
 }
 
+
 /*---------------------------------  
 Sidebar Home
 ---------------------------------------*/
-/* BEM Element and Modifier */
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  99% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  99% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
 
 
-
+/* Existing styles remain the same */
 .geex-sidebar-home {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: 38px 29px;
-  overflow-y: auto;
-  scrollbar-width: none;
-  border: none;
-  background-color: var(--primary-color);
+  position: fixed; /* Absolute positioning relative to the parent container */
+  top: 75px; /* Align the top of the sidebar below the fixed header */
+  right: 20px; /* Space from the right */
+  width: 300px; /* Fixed width for the sidebar */
+  max-width: 80%; /* Maximum width to ensure it doesn't stretch too wide */
+  max-height: calc(100vh - 80px); /* Maximum height to fit below the header */
+  padding: 10px;
+  border: 1px solid var(--grayTwo-color); /* Border around the popup */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for popup effect */
+  background-color: var(--white-color);
+  overflow-y: auto; /* Add scrollbar if content exceeds the height */
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 9999;
+  z-index: 999; /* Lower z-index to ensure it stays below the header */
+  display: none; /* Hide by default */
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
 }
-
 
 
 .geex-sidebar-home::-webkit-scrollbar {
@@ -12787,202 +12844,150 @@ Sidebar Home
 }
 
 
-
-@media only screen and (max-width: 1199px) {
-  .geex-sidebar-home {
-    width: 100%; /* Ensure it takes full width on smaller screens */
-    max-width: 100%; /* Prevents any horizontal overflow */
-    max-height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 0;
-    max-height: 100vh;
-    overflow-y: auto;
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 575px) {
-  .geex-sidebar-home {
-    padding: 35px 20px;
-  }
-}
-
-
-
-.geex-sidebar-home__wrapper {
+.geex-sidebar-home__menu-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  height: calc(100vh - 260px);
-  margin-top: 100px;
-}
-
-.geex-sidebar-home__logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.geex-sidebar-home__logo img {
-  max-height: 50px;
-  max-width: 100%;
-}
-
-.geex-sidebar-home__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  inset-inline-end: 20px;
-  color: var(--white-color);
-  display: none;
-  font-size: 20px; /* Adjust font size for better visibility */
-  padding: 10px; /* Space around the icon */
-  border: 2px solid var(--white-color); /* White border */
-  border-radius: 100%; /* Circular shape */
-  background-color: transparent; /* Transparent background */
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
-}
-
-.geex-sidebar-home__close:hover {
-  color: var(--danger-color);
-  background-color: var(--white-color); /* White background on hover */
-  border-color: var(--danger-color); /* Change border color on hover */
-}
-
-@media only screen and (max-width: 1199px) {
-  .geex-sidebar-home__close {
-    display: block;
-  }
-}
-
-.geex-sidebar-home__menu-wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 
 .geex-sidebar-home__menu {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center menu items horizontally */
-  gap: 10px; /* Spacing between items */
+  gap: 5px;
+  padding-left: 7px;
+}
+
+.geex-sidebar-home__menu__heading {
+  color: var(--grayThree-color); /* Gray color for headings */
+  font-size: 12px; /* Smaller font size for headings */
+  font-weight: normal; /* Normal weight for headings */
+  margin-bottom: 6px; /* Space below the heading */
+  pointer-events: none; /* Prevent clicking on headings */
+  padding-left: 1px;
 }
 
 .geex-sidebar-home__menu__item {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
+  padding-top: 3px;
 }
 
-.geex-sidebar-home__menu__item:first-child {
-  margin-top: 60px;
+.geex-sidebar-home__menu__item:not(:last-child)::after {
+  content: '';
+  display: block;
+  border-bottom: 1px solid var(--grayTwo-color); /* Gray line after each section */
+  width: calc(100% + 30px); /* Extend the width to cover the full width including padding */
+  margin-left: -20px; /* Offset the padding from the parent container */
+  margin-top: 5px; /* Add some space between the content and the line if needed */
 }
 
-.geex-sidebar-home__menu__item:last-child {
-  margin-bottom: 60px;
-}
 
 .geex-sidebar-home__menu__link {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  gap: 20px;
-  color: var(--white-color);
-  padding: 26px 25px;
-  font-size: 36px;
+  align-items: center;
+  color: var(--dark-color);
+  padding: 3px 3px;
+  font-size: 13px; /* Adjusted font size */
   line-height: 24px;
-  border-radius: 18px;
-  -webkit-transition: all 0.3s ease;
+  border-radius: 10px;
   transition: all 0.3s ease;
-  font:bold;
+  font-weight: 500;
 }
 
-
-
-.geex-sidebar-home__menu__link i {
-  font-size: 23px;
-  color: var(--grayThree-color);
+.geex-sidebar-home__menu__link:hover {
+  background: var(--gray-color);
+  color: var(--dark-color)
 }
 
-
+/* .geex-sidebar-home__menu__link.default-active,
+.geex-sidebar-home__menu__link.active {
+  color: var(--primary-color);
+  background: transparent;
+} */ */
 
 .geex-sidebar-home__menu__link svg path {
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.geex-sidebar-home__menu__link:hover,
-.geex-sidebar-home__menu__link.default-active,
-.geex-sidebar-home__menu__link.active {
-  color: var(--white-color); /* Ensure the color remains white on hover */
-  background: transparent; /* Keep background transparent on hover */
+.geex-sidebar-home__menu__link i {
+  font-size: 24px; /* Larger icon size */
+  color: var(--dark-color); /* Blacker color for icons */
 }
 
-
 .geex-sidebar-home__button-wrapper {
-  position: absolute;
-  bottom: 25%; /* Position the buttons 3/4 down the screen */
-  left: 50%;
-  transform: translate(-50%, 0); /* Center the buttons horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* Space between buttons */
+  gap: 15px;
+  padding: 20px 0; /* Add some space above and below buttons */
 }
+
 
 .geex-sidebar-home__button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 20px 40px;
-  font-size: 18px;
-  color: var(--white-color);
+  width: 60%;
+  padding: 10px 30px;
+  font-size: 16px;
+  color: var(--dark-color);
   background: transparent;
-  border: 2px solid var(--white-color); /* White border */
-  border-radius: 50px; /* Rounded corners */
+  border-radius: 50px;
   text-decoration: none;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-
 .geex-sidebar-home__button[href="signup"] {
   color: var(--white-color);
-  background-color: var(--orange-color); 
-  border: 2px solid var(--white-color); 
+  background-color: var(--orange-color);
+  border: 2px solid var(--orange-color); /* Orange border for signup button */
 }
 
 .geex-sidebar-home__button:hover {
-  background: var(--white-color); /* White background on hover */
-  color: var(--primary-color); /* Primary color text on hover */
+  background: var(--purple-color);
+  color: var(--white-color);
+  border: 2px solid var(--white-color);
+}
+
+.geex-sidebar-home__menu__home {
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 7px;
+  padding-top: 5px;
 }
 
 
+.geex-sidebar-home__menu__home:hover {
+  color: black;
+}
+
 @media only screen and (max-width: 875px) {
-  .geex-sidebar-home__menu__link {
-    gap: 10px;
-    font-size: 26px;
-    padding: 20px 25px;
+  .geex-sidebar-home {
+    top: 65px;
   }
 
+  .geex-sidebar-home__menu__link {
+    font-size: 12px; /* Smaller font size for smaller screens */
+    padding: 3px 3px;
+  }
+  
   .geex-sidebar-home__button {
-    padding: 12px 70px;
-    font-size: 16px;
+    padding: 8px 70px;
+    font-size: 12px;
+  }
+
+  .geex-sidebar-home__menu__heading {
+    font-size: 10px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+  }
+}
+
+/* Adjustments for screens smaller than 480px */
+@media only screen and (max-width: 480px) {
+  .geex-sidebar-home {
+    width: calc(100% - 20px); /* Almost full width */
+    max-width: 90%;
   }
 }
 
@@ -12994,15 +12999,11 @@ Sidebar Home
 
 @media only screen and (max-width: 550px) {
   .geex-sidebar-home__button {
-    padding: 10px 40px;
-    font-size: 12px;
+    padding: 6px 40px;
+    font-size: 10px; /* Smaller font size for very small screens */
   }
 }
 
-
-.white-icon {
-  filter: invert(1); /* Inverts the color to white */
-}
 
 
 
@@ -13014,48 +13015,59 @@ Sidebar Home
 /* BEM Element and Modifier */
 
 .geex-small-header-home {
-  display: none;
-  padding: 20px 0 30px;
-  background-color: var(--white-fade-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it's above other content */
+  padding: 1px 0 1px;
+  background-color: var(--transparent-color);
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
+  font-weight: 500;
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  transition: box-shadow 0.3s ease;
+}
+
+.geex-small-header-home.with-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .geex-small-header-home__wrapper {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px 22px;
+  padding: 0 10px 0;
+}
+
+.geex-small-header-home__wrapper_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.geex-small-header-home__wrapper_left span {
+  font-size: 13px; /* Adjust to your desired size */
 }
 
 .geex-btn.geex-btn__toggle-sidebar-home {
-  position: absolute; 
-  left: 22px; 
-  color: var(--purple-color);
-  background:transparent;
-  border: 1px solid var(--purple-color); 
+  color: var(--dark-color);
+  background: transparent;
+  font-weight: bold; /* Ensures the text or icon is bold */
+  font-size: 26px; /* Increase the font size to make the icon bigger */
 }
   
-.geex-btn.geex-btn__toggle-sidebar-home:hover {
-  color: var(--white-color); 
-  background-color: var(--purple-color); 
-  border: 1px solid var(--purple-color); 
-}
 
 .geex-small-header-home h1 {
-  font-size: 2.5em; 
+  font-size: 28px; 
   font-weight: bold; 
-  background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text; 
-  margin: 0; 
+  margin-left: 5px; 
+  color: #000;
 }
 
-.geex-small-header-home__wrapper {
-  position: relative; 
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
+
 
 
 @media only screen and (max-width: 1199px) {
@@ -13067,7 +13079,30 @@ Sidebar Home
   }
 }
 
+@media only screen and (min-width: 1199px) {
+  .geex-header-home {
+    display: block;
+  }
+  .geex-small-header-home {
+    display: none;
+  }
+}
 
+@media only screen and (max-width: 499px) {
+  .geex-small-header-home {
+    padding: 0 0 0;
+  }
+
+  .geex-small-header-home h1 {
+    font-size: 25px; 
+    font-weight: bold; 
+    margin: 0; 
+  }
+
+  .geex-small-header-home__wrapper_left span {
+    font-size: 13px; /* Adjust to your desired size */
+  }
+}
 
 /*---------------------------------------
 #. First Page Home
@@ -13076,11 +13111,12 @@ Sidebar Home
 /* BEM Element and Modifier */
 
 .geex-first-page {
-  background-color: var(--white-fade-color); 
+  background-color: var(--white-color); 
   flex: 1; 
   display: flex;
   align-items: flex-start;
   justify-content: flex-start; /* Center the content horizontally */
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
 }
 
 .geex-first-page__content {
@@ -13089,7 +13125,7 @@ Sidebar Home
   max-width: 100%; /* Ensure the content doesn't stretch too wide */
   width: 100%; /* Make sure content takes full width */
   text-align: center; /* Center text */
-  color: var(--black-color); 
+  color: var(--dark-color); 
   align-items: center; /* Center items horizontally */
   margin-top: 50px;
   margin-right: 30px;
@@ -13186,6 +13222,10 @@ Sidebar Home
   height: auto; /* Maintain aspect ratio */
   max-height: 100%; /* Ensure it does not exceed the container’s height */
   border: none; /* Remove any default border or outline */
+}
+
+.white-icon {
+  filter: invert(1); /* Inverts the color to white */
 }
 
 /* Adjust layout for larger screens */
@@ -13422,9 +13462,9 @@ Sidebar Home
   transition: color 0.3s ease;
 }
 
-.geex-footer__link:hover {
+/* .geex-footer__link:hover {
   color: var(--primary-color);
-}
+} */
 
 .geex-footer__section--brand {
   display: flex;
@@ -13526,6 +13566,124 @@ Sidebar Home
   }
 }
 
+
+/*---------------------------------------
+#. Second Page Home
+---------------------------------------*/
+
+/* BEM Element and Modifier */
+
+.geex-second-page {
+  background-color: var(--white-color); 
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.geex-second-page__content {
+  display: flex;
+  flex-direction: column; /* Default to column layout for small screens */
+  max-width: none;
+  width: 100%; /* Make sure content takes full width */
+  text-align: center; /* Center text */
+  color: var(--dark-color); 
+  align-items: center; /* Center items horizontally */
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto; /* Center content horizontally */
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
+}
+
+.geex-second-page__main_content {
+  margin-bottom: 45px; /* Space between the main content and the video */
+  max-width: 80%;
+}
+
+.geex-second-page__heading {
+  color: #000;
+  font-size: 56.25px;
+  font-weight: 700;
+  font-family: 'Geologica', -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif; /* Apply the Omnes font */
+}
+
+.geex-second-page__text1 {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
+  margin-top: 15px;
+  margin-bottom: 35px;
+  color: rgba(32, 33, 37, 0.64);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.geex-second-home__button-wrapper {
+  display: flex;
+  align-items: center; /* Center button horizontally */
+  justify-content: center; /* Center button horizontally */
+}
+
+.geex-second-home__button {
+  padding: 12px 18px;
+  font-size: 16px;
+  color: var(--white-color);
+  background: var(--orange-color);
+  border: 3px solid var(--orange-color); /* Orange border */
+  border-radius: 30px; /* Rounded corners */
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.geex-second-home__button:hover {
+  background: var(--purple-color); /* Purple background on hover */
+  color: var(--white-color); /* White text on hover */
+  border: 3px solid var(--purple-color);
+}
+
+.geex-second-page__video {
+  width: 100%;
+  position: relative;
+  height: 30vw;
+  min-height: 17.5rem;
+  max-height: calc((var(--content-width) + 18.75rem) * 0.3);
+}
+
+.geex-second-page__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+}
+
+/* Media Queries for Responsiveness */
+
+@media only screen and (max-width: 1199px) {
+  .geex-second-page__heading {
+    font-size: 54.25px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .geex-second-page__heading {
+    font-size: 36.8px;
+  }
+
+  .geex-second-page__content {
+    margin-top: 70px;
+  }
+
+  .geex-second-page__text1 {
+    margin-bottom: 20px;
+  }
+
+  .geex-second-page__main_content {
+    margin-bottom: 20px;
+  }
+
+}
 
 
 

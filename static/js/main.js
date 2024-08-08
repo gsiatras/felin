@@ -269,6 +269,25 @@
 		}
 	});
 
+	// Close sidebar when clicking outside of it
+	$(document).click(function(e) {
+		var sidebar = $(".geex-sidebar-home");
+		var toggleButton = $(".geex-btn__toggle-sidebar-home");
+
+		// Check if the click happened outside the sidebar and the toggle button
+		if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0 && 
+			!toggleButton.is(e.target) && toggleButton.has(e.target).length === 0) {
+			
+			if (sidebar.hasClass("active")) {
+				sidebar.removeClass("active");
+				sidebar.animate({ 
+					width: "toggle" 
+				});
+				$("body").removeClass("overlay_active");
+			}
+		}
+	});
+
 	// Datepicker Open
 	$("#geex-content__filter__label").click(function() {
 		$('#geex-content__filter__date').datepicker().datepicker('show');
@@ -1672,5 +1691,109 @@
 	});
 	
 
+	// Function to detect the possition of the header and enable/disable box shadow
+	document.addEventListener('DOMContentLoaded', function() {
+        var header = document.querySelector('.geex-header-home');
+        var smallHeader = document.querySelector('.geex-small-header-home');
+        
+        function toggleBoxShadow() {
+            if (window.scrollY > 0) {
+                if (header) {
+                    header.classList.add('with-shadow');
+                }
+                if (smallHeader) {
+                    smallHeader.classList.add('with-shadow');
+                }
+            } else {
+                if (header) {
+                    header.classList.remove('with-shadow');
+                }
+                if (smallHeader) {
+                    smallHeader.classList.remove('with-shadow');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', toggleBoxShadow);
+    });
+
+
+	// Function to handle the merchant menu next to the logo of the headers
+	document.addEventListener('DOMContentLoaded', function() {
+		// Default text for the main menu item
+		const defaultText = 'Για εμπόρους';
+		const mainMenuSpan = document.querySelector('.geex-header-home__menu__item.has-children.merchant > a > span');
+		
+		// Set the default text
+		if (mainMenuSpan) {
+		  mainMenuSpan.textContent = defaultText;
+		}
+	
+		// Add event listeners to menu items with submenus
+		const menuItems = document.querySelectorAll('.geex-header-home__menu__item.has-children.merchant > a');
+	
+		menuItems.forEach(item => {
+		  item.addEventListener('click', function(event) {
+			// Prevent default link behavior
+			event.preventDefault();
+	
+			// Toggle submenu visibility
+			const submenu = this.nextElementSibling;
+	
+			if (submenu) {
+			  const isVisible = submenu.style.height === 'auto';
+			  
+			  // Hide all other submenus
+			  document.querySelectorAll('.geex-header-home__submenu.merchant').forEach(sub => {
+				if (sub !== submenu) {
+				  sub.style.height = '0';
+				  sub.style.opacity = '0';
+				  sub.style.visibility = 'hidden';
+				  sub.style.transform = 'translateY(-10px)';
+				}
+			  });
+			  
+			  if (isVisible) {
+				// If the clicked submenu is already visible, hide it
+				submenu.style.height = '0';
+				submenu.style.opacity = '0';
+				submenu.style.visibility = 'hidden';
+				submenu.style.transform = 'translateY(-10px)';
+			  } else {
+				// Show the clicked submenu
+				submenu.style.height = 'auto';
+				submenu.style.opacity = '1';
+				submenu.style.visibility = 'visible';
+				submenu.style.transform = 'translateY(0)';
+			  }
+			}
+		  });
+		});
+	
+		// Add event listeners to submenu items
+		const submenuItems = document.querySelectorAll('.geex-header-home__submenu__item.merchant a');
+	
+		submenuItems.forEach(item => {
+		  item.addEventListener('click', function(event) {
+			// Prevent default link behavior
+			event.preventDefault();
+			
+			// Update the main menu item text
+			if (mainMenuSpan) {
+			  mainMenuSpan.textContent = this.textContent;
+			}
+	
+			// Optionally hide the submenu after selection
+			const submenu = this.closest('.geex-header-home__submenu.merchant');
+			if (submenu) {
+			  submenu.style.height = '0';
+			  submenu.style.opacity = '0';
+			  submenu.style.visibility = 'hidden';
+			  submenu.style.transform = 'translateY(-10px)';
+			}
+		  });
+		});
+	});
+	
 
 })(jQuery);

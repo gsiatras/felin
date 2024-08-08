@@ -5,49 +5,59 @@
 /* BEM Element and Modifier */
 
 .geex-small-header-home {
-  display: none;
-  padding: 40px 0 10px;
-  background-color: var(--quatinery-color--transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it's above other content */
+  padding: 1px 0 1px;
+  background-color: var(--transparent-color);
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", sans-serif;
+  font-weight: 500;
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  transition: box-shadow 0.3s ease;
+}
+
+.geex-small-header-home.with-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .geex-small-header-home__wrapper {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 22px;
+  padding: 0 10px 0;
+}
+
+.geex-small-header-home__wrapper_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.geex-small-header-home__wrapper_left span {
+  font-size: 13px; /* Adjust to your desired size */
 }
 
 .geex-btn.geex-btn__toggle-sidebar-home {
-  position: absolute; 
-  left: 22px; 
-  color: var(--primary-color);
-  background:transparent;
-  border: 1px solid var(--primary-color); 
-  padding-top: 100px;
+  color: var(--black-color);
+  background: transparent;
+  border: 1px solid var(--black-color);
+  font-weight: bold; /* Ensures the text or icon is bold */
+  font-size: 26px; /* Increase the font size to make the icon bigger */
 }
   
-.geex-btn.geex-btn__toggle-sidebar-home:hover {
-  color: var(--white-color); 
-  background-color: var(--primary-color); 
-  border: 1px solid var(--primary-color); 
-}
 
 .geex-small-header-home h1 {
-  font-size: 2.5em; 
+  font-size: 28px; 
   font-weight: bold; 
-  background: linear-gradient(to right, orange, rgb(220, 220, 37), green, rgb(33, 141, 249), rgb(96, 13, 155), violet); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text; 
-  margin: 0; 
+  margin-left: 5px; 
 }
 
-.geex-small-header-home__wrapper {
-  position: relative; 
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
+
 
 
 @media only screen and (max-width: 1199px) {
@@ -59,3 +69,27 @@
   }
 }
 
+@media only screen and (min-width: 1199px) {
+  .geex-header-home {
+    display: block;
+  }
+  .geex-small-header-home {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .geex-small-header-home {
+    padding: 0 0 0;
+  }
+
+  .geex-small-header-home h1 {
+    font-size: 25px; 
+    font-weight: bold; 
+    margin: 0; 
+  }
+
+  .geex-small-header-home__wrapper_left span {
+    font-size: 13px; /* Adjust to your desired size */
+  }
+}
